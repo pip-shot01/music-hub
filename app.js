@@ -7,9 +7,9 @@ let carouselImageIndex = 0;
 const changeCarousel = () => {
     carousel[carouselImageIndex].classList.toggle('active');
 
-    if(carouselImageIndex >= carousel.length - 1){
+    if (carouselImageIndex >= carousel.length - 1) {
         carouselImageIndex = 0;
-    } else{
+    } else {
         carouselImageIndex++;
     }
 
@@ -19,6 +19,7 @@ const changeCarousel = () => {
 setInterval(() => {
     changeCarousel();
 }, 3000);
+
 
 /////////////////////navigations////////////
 
@@ -30,7 +31,7 @@ let clickCount = 1;
 
 musicPlayerSection.addEventListener('click', () => {
     // checking for double click manually idk why default dbclick event was not working with this project If you know what could the problem Kindly tell me in the discussion below
-    if(clickCount >= 2){
+    if (clickCount >= 2) {
         musicPlayerSection.classList.add('active');
         clickCount = 1;
         return;
@@ -40,6 +41,7 @@ musicPlayerSection.addEventListener('click', () => {
         clickCount = 1;
     }, 250);
 })
+
 
 /////// back from music player
 
@@ -94,7 +96,9 @@ const repeatBtn = document.querySelector('span.fa-redo');
 const volumeBtn = document.querySelector('span.fa-volume-up');
 const volumeSlider = document.querySelector('.volume-slider');
 
+// playbtn click event 
 
+// playBtn
 
 
 // funtion for setting up music
@@ -124,12 +128,12 @@ setMusic(0);
 // format duration in 00 : 00 format
 const formatTime = (time) => {
     let min = Math.floor(time / 60);
-    if(min < 10){
+    if (min < 10) {
         min = `0` + min;
     }
 
     let sec = Math.floor(time % 60);
-    if(sec < 10){
+    if (sec < 10) {
         sec = `0` + sec;
     }
 
@@ -153,12 +157,12 @@ pauseBtn.addEventListener('click', () => {
     playBtn.classList.add('active');
 })
 
-//  forward btn
+//  forward btn    -1
 
 forwardBtn.addEventListener('click', () => {
-    if(currentMusic >= songs.length - 1){
-        currentMusic = 0;
-    } else{
+    if (currentMusic >= songs.length + 0) {
+        // currentMusic = 0;
+    } else {
         currentMusic++;
     }
     setMusic(currentMusic);
@@ -168,9 +172,9 @@ forwardBtn.addEventListener('click', () => {
 // backward btn
 
 backwardBtn.addEventListener('click', () => {
-    if(currentMusic <= 0){
+    if (currentMusic <= 0) {
         currentMusic = songs.length - 1;
-    } else{
+    } else {
         currentMusic--;
     }
     setMusic(currentMusic);
@@ -181,11 +185,11 @@ backwardBtn.addEventListener('click', () => {
 setInterval(() => {
     seekBar.value = music.currentTime;
     currentMusicTime.innerHTML = formatTime(music.currentTime);
-    if(Math.floor(music.currentTime) == Math.floor(seekBar.max)){
-        if(repeatBtn.className.includes('active')){
+    if (Math.floor(music.currentTime) == Math.floor(seekBar.max)) {
+        if (repeatBtn.className.includes('active')) {
             setMusic(currentMusic);
             playBtn.click();
-        } else{
+        } else {
             forwardBtn.click();
         }
     }
