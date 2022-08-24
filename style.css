@@ -16,24 +16,24 @@
 }
 
 html{
-    background: var(--background);
+    /* background: var(--background);
     display: flex;
-    justify-content: center;
+    justify-content: center; */
 }
 
 body{
-    width: 100%;
-    height: 100vh;
-    max-width: 375px;
-    position: relative;
+    /* width: 100%; */
+    /* height: 100vh; */
+    /* max-width: 375px; */
+    /* position: relative; */
     background: var(--background);
-    font-family: 'roboto', sans-serif;
-    color: var(--text-color);
+    /* font-family: 'roboto', sans-serif;*/
+    color: var(--text-color); 
 }
 
-::-webkit-scrollbar{
+/* ::-webkit-scrollbar{
     display: none;
-}
+} */
 
 /* home section */
 
@@ -60,9 +60,9 @@ body{
     position: absolute;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit:cover;
     opacity: 0;
-    transition: 1s;
+    transition:1s;
 }
 
 .carousel img.active{
@@ -77,26 +77,26 @@ body{
 /* playlists card */
 
 .playlists-group{
-    position: relative;
-    width: 100%;
-    min-height: 200px;
-    height: auto;
+    /* position: relative; */
+    /* width: 100%; */
+    /* min-height: 200px; */
+    /* height: auto; */
     display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
+    /* flex-wrap: nowrap; */
+    overflow-x: scroll;
 }
 
 .playlist-card{
     flex: 0 0 auto;
-    max-width: 150px;
+     max-width: 40%;        /*150px */
     height: 100%;
     margin-right: 20px;
 }
 
 .playlist-card-img{
     width: 100%;
-    height: 150px;
-    object-fit: cover;
+    height:150px;
+    object-fit: cover;    /*cover */
     border-radius: 20px;
 }
 
@@ -118,14 +118,14 @@ body{
     bottom:0;
     left: 0;
     background: var(--alpha-color);
-    -webkit-backdrop-filterbackdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
     transition: 1s;
 }
 .music-seek-bar{
-    -webkit-appearance: none;
+    -webkit-appearance: block;
     width: 100%;
-    position: absolute;
-    top: -4px;
+    /* position: absolute; */
+    /* top: -4px; */
     height: 8px;
     background: var(--secondary-color);
     overflow: hidden;
@@ -356,11 +356,9 @@ body{
     color: var(--primary-color);
     display: none;
 }
-
 .queue.active i{
     display: block;
 }
-
 .queue .name{
     font-size: 22px;
     text-transform: capitalize;
